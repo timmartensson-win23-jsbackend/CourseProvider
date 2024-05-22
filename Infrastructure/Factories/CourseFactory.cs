@@ -107,6 +107,8 @@ public static class CourseFactory
             AutherImageAltText = entity.
             YouTubeSubscribers = entity.YouTubeSubscribers,
             FaceBookFollowers = entity.FaceBookFollowers,
+            ShowcaseImage = entity.ShowcaseImage,
+            Articles = entity.Articles,
             CourseDescription = entity.CourseDescription,
             ViewHours = entity.ViewHours,
             Resources = entity.Resources,

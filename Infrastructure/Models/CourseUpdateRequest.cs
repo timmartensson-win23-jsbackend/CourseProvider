@@ -8,7 +8,7 @@ public class CourseUpdateRequest
     public bool IsBestSeller { get; set; } = false;
     public string? CourseImage { get; set; }
     public string? CourseImageAltText { get; set; }
-    public string Title { get; set; } = null!;
+    public string? Title { get; set; }
     public string? Price { get; set; }
     public string? DiscountPrice { get; set; }
     public string? Rating { get; set; }
@@ -16,7 +16,6 @@ public class CourseUpdateRequest
     public string? Views { get; set; }
     public string? LikesInPercent { get; set; }
     public string? LikesInNumbers { get; set; }
-    public DateTime Updated { get; set; }
 
     // AutherInfo
     public string? AuthorName { get; set; }

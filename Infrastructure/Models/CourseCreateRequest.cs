@@ -9,7 +9,7 @@ public class CourseCreateRequest
     public bool IsBestSeller { get; set; } = false;
     public string? CourseImage { get; set; }
     public string? CourseImageAltText { get; set; }
-    public string Title { get; set; } = null!;
+    public string? Title { get; set; }
     public string? Price { get; set; }
     public string? DiscountPrice { get; set; }
     public string? Rating { get; set; }
