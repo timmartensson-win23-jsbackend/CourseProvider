@@ -28,9 +28,11 @@ public static class CourseFactory
             AuthorName = request.AuthorName,
             AutherBio = request.AutherBio,
             AuthorImage = request.AuthorImage,
-            AutherImageAltText = request.AutherImageAltText,
+            AutherImageAltText = request.
             YouTubeSubscribers = request.YouTubeSubscribers,
             FaceBookFollowers = request.FaceBookFollowers,
+            ShowcaseImage = request.ShowcaseImage,
+            Articles = request.Articles,
             CourseDescription = request.CourseDescription,
             ViewHours = request.ViewHours,
             Resources = request.Resources,
@@ -38,7 +40,7 @@ public static class CourseFactory
             ProgramDetailsTitle = request.ProgramDetailsTitle,
             ProgramDetailsText = request.ProgramDetailsText,
             LearnPoints = request.LearnPoints,
-            
+
             Category = request.Category == null ? null : new CategoryEntity
             {
                 CategoryName = request.Category.CategoryName
@@ -66,9 +68,11 @@ public static class CourseFactory
             AuthorName = request.AuthorName,
             AutherBio = request.AutherBio,
             AuthorImage = request.AuthorImage,
-            AutherImageAltText = request.AutherImageAltText,
+            AutherImageAltText = request.
             YouTubeSubscribers = request.YouTubeSubscribers,
             FaceBookFollowers = request.FaceBookFollowers,
+            ShowcaseImage = request.ShowcaseImage,
+            Articles = request.Articles,
             CourseDescription = request.CourseDescription,
             ViewHours = request.ViewHours,
             Resources = request.Resources,
