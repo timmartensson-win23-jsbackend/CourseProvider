@@ -31,7 +31,7 @@ public class CourseCreateRequest
     public string? ShowcaseImage { get; set; }
     public string? CourseDescription { get; set; }
     public string? ViewHours { get; set; }
-    public string? Articles { get; set; }
+    public string? Articles { get; set; }    
     public string? Resources { get; set; }
     public string? AccessTime { get; set; }
     public List<string>? ProgramDetailsTitle { get; set; }

@@ -32,7 +32,7 @@ public static class CourseFactory
             YouTubeSubscribers = request.YouTubeSubscribers,
             FaceBookFollowers = request.FaceBookFollowers,
             ShowcaseImage = request.ShowcaseImage,
-            Articles = request.Articles,
+            Articles = request.Articles,         
             CourseDescription = request.CourseDescription,
             ViewHours = request.ViewHours,
             Resources = request.Resources,

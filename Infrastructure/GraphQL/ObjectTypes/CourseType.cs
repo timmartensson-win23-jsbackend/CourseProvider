@@ -20,8 +20,6 @@ public class CourseType : ObjectType<CourseEntity>
         descriptor.Field(c => c.Views).Type<StringType>();
         descriptor.Field(c => c.LikesInPercent).Type<StringType>();
         descriptor.Field(c => c.LikesInNumbers).Type<StringType>();
-        descriptor.Field(c => c.Created).Type<NonNullType<DateTimeType>>();
-        descriptor.Field(c => c.Updated).Type<NonNullType<DateTimeType>>();
         descriptor.Field(c => c.AuthorName).Type<StringType>();
         descriptor.Field(c => c.AutherBio).Type<StringType>();
         descriptor.Field(c => c.AuthorImage).Type<StringType>();
