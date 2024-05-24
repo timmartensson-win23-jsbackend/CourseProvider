@@ -3,12 +3,13 @@ using Infrastructure.Data.Contexts;
 using Infrastructure.Factories;
 using Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
+using static Infrastructure.Services.CourseService;
 
 namespace Infrastructure.Services;
 
 public interface ICourseService
 {
-    Task<Course> CreateCourseAsync(CourseCreateRequest request);
+    Task<CreateCourseResponse> CreateCourseAsync(CourseCreateRequest request);
 
     Task<Course> GetCourseByIdAsync(string id);
 
@@ -24,7 +25,18 @@ public class CourseService(IDbContextFactory<DataContext> contextFactory) : ICou
     private readonly IDbContextFactory<DataContext> _contextFactory = contextFactory;
 
 
-    public async Task<Course> CreateCourseAsync(CourseCreateRequest request)
+    //public async Task<Course> CreateCourseAsync(CourseCreateRequest request)
+    //{
+    //    await using var context = _contextFactory.CreateDbContext();
+
+    //    var courseEntity = CourseFactory.Create(request);
+    //    context.Courses.Add(courseEntity);
+    //    await context.SaveChangesAsync();
+
+    //    return CourseFactory.Create(courseEntity);
+
+    //}
+    public async Task<CreateCourseResponse> CreateCourseAsync(CourseCreateRequest request)
     {
         await using var context = _contextFactory.CreateDbContext();
 
@@ -32,10 +44,21 @@ public class CourseService(IDbContextFactory<DataContext> contextFactory) : ICou
         context.Courses.Add(courseEntity);
         await context.SaveChangesAsync();
 
-        return CourseFactory.Create(courseEntity);
+        return new CreateCourseResponse
+        {
+            Id = courseEntity.Id,
+            Success = true,
+            Message = "Course created Successfully"
+        };
 
     }
 
+    public class CreateCourseResponse
+    {
+        public string Id { get; set; } = null!;
+        public bool Success { get; set; }
+        public string? Message { get; set; }
+    }
     public async Task<bool> DeleteCourseAsync(string id)
     {
         await using var context = _contextFactory.CreateDbContext();
