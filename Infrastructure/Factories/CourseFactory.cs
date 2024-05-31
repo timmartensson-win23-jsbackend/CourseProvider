@@ -28,7 +28,7 @@ public static class CourseFactory
             AuthorName = request.AuthorName,
             AutherBio = request.AutherBio,
             AuthorImage = request.AuthorImage,
-            AutherImageAltText = request.
+            AutherImageAltText = request.AutherImageAltText,
             YouTubeSubscribers = request.YouTubeSubscribers,
             FaceBookFollowers = request.FaceBookFollowers,
             ShowcaseImage = request.ShowcaseImage,
@@ -68,7 +68,7 @@ public static class CourseFactory
             AuthorName = request.AuthorName,
             AutherBio = request.AutherBio,
             AuthorImage = request.AuthorImage,
-            AutherImageAltText = request.
+            AutherImageAltText = request.AutherImageAltText,
             YouTubeSubscribers = request.YouTubeSubscribers,
             FaceBookFollowers = request.FaceBookFollowers,
             ShowcaseImage = request.ShowcaseImage,
@@ -108,7 +108,7 @@ public static class CourseFactory
             AuthorName = entity.AuthorName,
             AutherBio = entity.AutherBio,
             AuthorImage = entity.AuthorImage,
-            AutherImageAltText = entity.
+            AutherImageAltText = entity.AutherImageAltText,
             YouTubeSubscribers = entity.YouTubeSubscribers,
             FaceBookFollowers = entity.FaceBookFollowers,
             ShowcaseImage = entity.ShowcaseImage,
