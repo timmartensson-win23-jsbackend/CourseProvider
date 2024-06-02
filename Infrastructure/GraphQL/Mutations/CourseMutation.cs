@@ -25,9 +25,9 @@ public class CourseMutation(ICourseService courseService)
     }
 
     [GraphQLName("deleteCourse")]
-    public async Task<bool> DeleteCourseAsync(string id)
+    public async Task<bool> DeleteCourseAsync(CourseDeleteRequest input)
     {
-        return await _courseService.DeleteCourseAsync(id);
+        return await _courseService.DeleteCourseAsync(input);
     }
 
 }
