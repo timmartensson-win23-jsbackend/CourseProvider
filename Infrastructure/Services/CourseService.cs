@@ -3,6 +3,7 @@ using Infrastructure.Data.Contexts;
 using Infrastructure.Factories;
 using Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using static Infrastructure.Services.CourseService;
 
 namespace Infrastructure.Services;
@@ -20,9 +21,11 @@ public interface ICourseService
     Task<bool> DeleteCourseAsync(string id);
 }
 
-public class CourseService(IDbContextFactory<DataContext> contextFactory) : ICourseService
+public class CourseService(IDbContextFactory<DataContext> contextFactory, ILogger<CourseService> logger) : ICourseService
 {
     private readonly IDbContextFactory<DataContext> _contextFactory = contextFactory;
+    private readonly ILogger<CourseService> _logger = logger;
+
 
 
     public async Task<Course> CreateCourseAsync(CourseCreateRequest request)
@@ -46,14 +49,27 @@ public class CourseService(IDbContextFactory<DataContext> contextFactory) : ICou
     }
     public async Task<bool> DeleteCourseAsync(string id)
     {
-        await using var context = _contextFactory.CreateDbContext();
+        try
+        {
+            await using var context = _contextFactory.CreateDbContext();
 
-        var courseEntity = await context.Courses.FirstOrDefaultAsync(x => x.Id == id);
-        if(courseEntity == null) return false;
-        
-        context.Courses.Remove(courseEntity);
-        await context.SaveChangesAsync();
-        return true;
+            var courseEntity = await context.Courses.FirstOrDefaultAsync(x => x.Id == id);
+            if (courseEntity == null)
+            {
+                _logger.LogInformation("Course with ID {Id} not found for deletion", id);
+                return false;
+            }
+            context.Courses.Remove(courseEntity);
+            await context.SaveChangesAsync();
+            _logger.LogInformation("Course with ID {Id} deleted successfully", id);
+            return true;
+        }
+        catch (Exception ex) 
+        {
+            _logger.LogError(ex, "An error occurred while deleting course with ID {Id}", id);
+            return false;
+        }
+       
       
     }
 
